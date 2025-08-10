@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stagger Animation Example</title>
+  <style>
+    .box {
+      width: 50px;
+      height: 50px;
+      background-color: steelblue;
+      margin: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      display: inline-block;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #container {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="animateBoxes()">Animate Boxes</button>
+
+  <div id="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+
+  <script>
+    // --- Delay helper: stagger delay function ---
+    function it(t = 0.1, { start: e = 0, from: r = 0, easing: i } = {}) {
+      return (s, o) => {
+        let a = isNaN(r) ? re(r, o) : r;
+        let n = Math.abs(a - s);
+        let f = t * n;
+        if (i) {
+          let c = o * t;
+          f = easingFunctions[i](f / c) * c;
+        }
+        return e + f;
+      };
+    }
+
+    function re(t, e) {
+      if (t === "first") return 0;
+      let r = e - 1;
+      return t === "last" ? r : r / 2;
+    }
+
+    const easingFunctions = {
+      linear: t => t,
+      easeIn: t => t * t,
+      easeOut: t => t * (2 - t),
+      easeInOut: t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+    };
+
+    // --- Animation function using delay calculator ---
+    function animateBoxes() {
+      const boxes = document.querySelectorAll(".box");
+      const delayFn = it(0.15, { from: "first", start: 0, easing: "easeOut" });
+
+      boxes.forEach((box, index) => {
+        const delay = delayFn(index, boxes.length) * 1000; // convert to ms
+        setTimeout(() => {
+          box.classList.add("visible");
+        }, delay);
+      });
+    }
+  </script>
+
+</body>
+</html>

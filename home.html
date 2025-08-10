@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload the font -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/1Pn0EnyXJmdSgbTxHLk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <!-- Load the font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <!-- FontFaceObserver Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.1.0/fontfaceobserver.standalone.js"></script>
+
+
+
+
+<link rel="prefetch" href="home.html" as="document">
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="navbar\navbar.css">
+  <link rel="stylesheet" href="font\font.css">
+  <link rel="stylesheet" href="animations/global.css">
+  <link rel="stylesheet" href="pages\index.css">
+  <link rel="stylesheet" href="controlers\scroll.css">
+  <link rel="stylesheet" href="sections/hero.css">
+  <link rel="stylesheet" href="sections\carousel.css">
+
+  <style>
+body.preload {
+        visibility: hidden;
+        opacity: 0; }
+
+    body { transition: opacity 0.2s ease-in; }
+  </style>
+
+</head>
+
+<body class="preload" data-barba="wrapper">
+<main  data-barba="container">
+  <div class="main-content text-container">
+
+    <!-- 🌐 NAVIGATION BAR (Smaller) -->
+    <nav id="navbar" class="duration-300 fixed inset-x-0 top-0 z-50 h-20">
+      <div class="flex items-center justify-between h-full max-w-screen-xl mx-auto px-8">
+        <a href="index.html" class="flex items-center space-x-8" data-transition>
+          <img src="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3ee_ctzeuvcjvyq518kr6iga-p-1080.webp" alt="Logo" class="h-5 w-auto" />
+          <span class="font-theme font-medium">SK Lepaga</span>
+        </a>
+        <button id="menu-toggle-btn" type="button" class="font-theme rounded-md hover:bg-[#e8e8e8] dark:hover:bg-[#696969] focus:outline-none" aria-controls="sidebar-multi-level-sidebar" aria-expanded="false">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 🧭 SIDEBAR -->
+    <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-30 w-[100vw] hidden transition-[height: 100%] duration-500 bg-white dark:bg-[#242424]" style="height: calc(100vh - 3rem); overflow-y: auto;" aria-label="Sidebar">
+      <div class="h-full flex items-center justify-center px-4 py-4 max-w-4xl mx-auto">
+        <div id="sidebar-menu" class="font-theme space-y-5 flex flex-col items-center justify-center">
+          <!-- Menu Items -->
+          <div class="sidebar-menu-item flex flex-col items-center m-6">
+            <a href="home2.html" data-transition rel="nofollow noopener">
+              <button class="sidebar-menu-header flex items-center space-x-2 focus:outline-none">
+                <h2 class="subtext-title">CALENDAR</h2>
+              </button>
+            </a>
+          </div>
+          <!-- Repeat for other menu items... -->
+        </div>
+      </div>
+    </aside>
+
+<section class="h-[calc(var(--vh)_*_100)] w-full flex flex-col justify-between bg-white overflow-hidden">
+  <div class="w-full pt-24 sm:pt-32 md:pt-36 lg:pt-40 pb-6 px-0 z-10">
+    <div class="overflow-hidden relative w-full">
+      <div class="w-full px-8 pb-12 gap-8 flex flex-col-reverse md:flex-row">
+        
+        <!-- Left: Image and Play Reel -->
+        <div class="text-line w-full md:w-3/8 mb-8 md:mb-0 flex items-end">
+          <div class="flex flex-col justify-end">
+            <p class="mb-4 text-sm text-gray-700">Play Reel ▶</p>
+
+            <!-- Fixed 16:9 Responsive Sizes -->
+<div class="image-container object-cover w-[200px] sm:w-[400px] lg:w-[700px] aspect-[16/9] relative overflow-hidden">
+<img id="image-current"
+     class="absolute inset-0 w-full h-full object-cover shadow-lg will-change-transform z-10" />
+<img id="image-next"
+     class="absolute inset-0 w-full h-full object-cover shadow-lg opacity-0 pointer-events-none will-change-transform z-0" />
+
+</div>
+
+
+          </div>
+        </div>
+
+        <!-- Right: Article Titles -->
+        <div class="w-full md:w-5/8 flex flex-col justify-end sm:text-left md:text-left">
+          <div>
+            <div class="text-container">
+              <h1 class="text-line subtext-title text-black">NEWS AND</h1>
+            </div>
+            <div class="text-container mb-6">
+              <h1 class="text-line subtext-title text-black">ARTICLES</h1>
+            </div>
+
+            
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3de_Rectangle%2026.png"
+    data-img-tablet="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/6808cd6c0588a9e2f7aee4d6_MSTF_LISBON_RODHAD_1070pxl.jpg"
+    data-img-mobile="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3e7_ytdv4dzjkhcfgd3bpcj4.webp">
+    <p class="text-line subtext text-black">50th Anniversary</p>
+  </div>
+</a>
+
+
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3ee_ctzeuvcjvyq518kr6iga.webp">
+    <p class="text-line subtext text-black">50th Anniversary this is a sample of a longer title</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3e7_ytdv4dzjkhcfgd3bpcj4.webp">
+    <p class="text-line subtext text-black">Basketball Tournament</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/6808cd6c0588a9e2f7aee4d6_MSTF_LISBON_RODHAD_1070pxl.jpg">
+    <p class="text-line subtext text-black">Tree Planting Event</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3de_Rectangle%2026.png">
+    <p class="text-line subtext text-black">Linggo ng Kabataan</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67fcf93081888d36b443f54b_APAV_OUTDOOR_LUCIANA_APAV_25NOV_THUMB-p-1600.jpg">
+    <p class="text-line subtext text-black">Anniversary Celebration</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3ee_ctzeuvcjvyq518kr6iga.webp">
+    <p class="text-line subtext text-black">50th Anniversary</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3e7_ytdv4dzjkhcfgd3bpcj4.webp">
+    <p class="text-line subtext text-black">Basketball Tournament</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-2 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/6808cd6c0588a9e2f7aee4d6_MSTF_LISBON_RODHAD_1070pxl.jpg">
+    <p class="text-line subtext text-black">Tree Planting Event</p>
+  </div>
+</a>
+
+<a href="index.html" data-transition>
+  <div class="text-container mb-8 article-title cursor-pointer hover:bg-gray-200 transition"
+    data-img="https://cdn.prod.website-files.com/67ebf279c44c5fad2f90f315/67ebf279c44c5fad2f90f3de_Rectangle%2026.png">
+    <p class="text-line subtext text-black">Linggo ng Kabataan</p>
+  </div>
+</a>
+
+
+            <div class="text-container">
+              <a href="article.html" class="text-line inline-block w-fit text-black border-b border-black hover:opacity-75 transition">
+                Explore All Articles
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  </div>
+
+
+
+
+
+  <!-- Script to wait for the font to load before showing the page -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.js"></script>
+
+
+  <script src="navbar\navbar.js"></script>
+  <script src="animations\global.js"></script>
+    <script src="font\font.js"></script>
+
+
+
+
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/gsap-core.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/EasePack.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ModifiersPlugin.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.1.0/fontfaceobserver.standalone.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+
+
+<script src="https://unpkg.com/@barba/core"></script>
+
+
+
+<script>
+  // On DOM load
+  window.addEventListener("DOMContentLoaded", () => {
+    gsap.utils.toArray(".clipp-section").forEach((section, index) => {
+      gsap.to(section, {
+        clipPath: "inset(0% 0% 0% 0%)", // Reveal fully
+        duration: 0.7,
+        ease: "power2.out",
+      });
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const currentImage = document.getElementById("image-current");
+const nextImage = document.getElementById("image-next");
+const titles = document.querySelectorAll(".article-title");
+
+let lastSrc = null;
+let lastHovered = null;
+let lastMoveTime = performance.now();
+let lastX = 0;
+let lastY = 0;
+
+function showImage(target) {
+  const newSrc = target.dataset.img;
+  if (!newSrc || newSrc === lastSrc) return;
+
+  lastSrc = newSrc;
+
+  // <<< Update active state
+  if (lastHovered && lastHovered !== target) {
+    lastHovered.classList.remove("bg-gray-100");
+  }
+  target.classList.add("bg-gray-100");
+  lastHovered = target;
+
+  // --- Speed calculation for dynamic duration ---
+  const now = performance.now();
+  const dx = event.clientX - lastX;
+  const dy = event.clientY - lastY;
+  const dt = now - lastMoveTime;
+  const distance = dt > 0 ? Math.sqrt(dx * dx + dy * dy) : 0;
+  const speed = dt > 0 ? distance / dt : 0;
+  const fastThreshold = 0.5;
+  const duration = speed > fastThreshold ? 0.2 : 0.4;
+
+  // <<< Animate image transition
+  gsap.killTweensOf([currentImage, nextImage]);
+
+  nextImage.src = newSrc;
+  gsap.set(nextImage, { scale: 1.1, opacity: 0, zIndex: 2 });
+  gsap.set(currentImage, { zIndex: 1 });
+
+  gsap.to(nextImage, {
+    opacity: 1,
+    scale: 1,
+    duration,
+    ease: "power2.out",
+    onComplete: () => {
+      currentImage.src = newSrc;
+      gsap.set(currentImage, { opacity: 1 });
+      gsap.set(nextImage, { opacity: 0 });
+    }
+  });
+}
+
+document.addEventListener("mousemove", (e) => {
+  lastX = e.clientX;
+  lastY = e.clientY;
+  lastMoveTime = performance.now();
+
+  const hoveredTitle = [...titles].find(title => title.contains(e.target));
+
+  if (hoveredTitle && hoveredTitle !== lastHovered) {
+    showImage(hoveredTitle);
+  }
+});
+
+// <<< REMOVED hideImage() + mouseleave listener
+
+// --- Initial setup ---
+gsap.set(currentImage, { opacity: 0, zIndex: 1 });
+gsap.set(nextImage, { opacity: 0, zIndex: 2 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  document.write(`
+  <style>
+    html, body {
+      background: white;
+      margin: 0;
+      padding: 0;
+    }
+    #page-transition {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      width: 60px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      transform: translateX(-50%) translateY(0) scale(1);
+      z-index: 10000;
+      pointer-events: none;
+      transition:
+        bottom 1s ease-in-out,
+        width 1s ease-in-out,
+        height 1s ease-in-out,
+        transform 1s ease-in-out;
+      display: none;
+    }
+    #page-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0);
+      pointer-events: none;
+      z-index: 9999;
+      transition: background 1s ease-in-out;
+      display: none;
+    }
+  </style>
+  <div id="page-transition"></div>
+  <div id="page-overlay"></div>
+`);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const transitionEl = document.getElementById("page-transition");
+  const overlayEl = document.getElementById("page-overlay");
+
+  // Intersection Observer setup
+  function initTextObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const textLine = entry.target.querySelector('.text-line');
+          if (textLine) {
+            textLine.classList.add('animate');
+            textLine.style.animationDelay = `${i * 0.2}s`;
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, { threshold: 1 });
+
+    document.querySelectorAll('.text-container').forEach(container => {
+      observer.observe(container);
+    });
+  }
+
+  function triggerTextAnimation() {
+    initTextObserver(); // Always run via observer
+  }
+
+  function coverPage(done) {
+    transitionEl.style.display = "block";
+    overlayEl.style.display = "block";
+
+    // Reset instantly
+    transitionEl.style.transition = "none";
+    transitionEl.style.bottom = "0";
+    transitionEl.style.width = "10px";
+    transitionEl.style.height = "10px";
+    transitionEl.style.borderRadius = "50%";
+    transitionEl.style.transform = "translateX(-50%) translateY(0) scale(1)";
+    overlayEl.style.background = "rgba(0,0,0,0)";
+
+    // Animate to full cover
+    requestAnimationFrame(() => {
+      transitionEl.style.transition =
+        "bottom 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out, transform 1s ease-in-out";
+      transitionEl.style.bottom = "50%";
+      transitionEl.style.width = "100vw";
+      transitionEl.style.height = "100vh";
+      transitionEl.style.borderRadius = "0";
+      transitionEl.style.transform = "translateX(-50%) translateY(50%) scale(1)";
+
+      overlayEl.style.transition = "background 1s ease-in-out";
+      overlayEl.style.background = "rgba(0,0,0,0.5)";
+    });
+
+    setTimeout(done, 1000);
+  }
+
+  function hideCover() {
+    transitionEl.style.display = "none";
+    overlayEl.style.display = "none";
+  }
+
+  barba.init({
+    transitions: [
+      {
+        name: "cover-only-leave",
+        async leave() {
+          await new Promise(resolve => coverPage(resolve));
+        },
+        async enter() {
+          hideCover();
+          triggerTextAnimation();
+        },
+        async once() {
+          triggerTextAnimation();
+        }
+      }
+    ]
+  });
+
+  // Run on first load
+  triggerTextAnimation();
+});
+
+</script>
+
+
+
+</main>
+</body>
+
+</html>
+

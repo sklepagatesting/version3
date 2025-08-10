@@ -1,0 +1,166 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('path/to/Inter.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* <-- Add this */
+}
+
+
+
+/* FONTS COLOR*/
+
+.font-theme {
+  color: #242424;
+}
+
+@media (prefers-color-scheme: dark) {
+  .font-theme {
+    color: #ffffff;
+  }
+}
+
+/* Ensure only child elements inherit font-theme's color */
+.font-theme * {
+  color: inherit;
+}
+
+/* Headings */
+:is([class*="u-text-style-"], h1, h2, h3, h4, h5, h6, blockquote) {
+	display: flow-root;
+}
+:is([class*="u-text-style-"], h1, h2, h3, h4, h5, h6, blockquote)::before {
+	content: "";
+	display: table;
+	margin-bottom: calc(-0.3h + 0.34em);
+}
+:is([class*="u-text-style-"], h1, h2, h3, h4, h5, h6, blockquote)::after {
+	content: "";
+	display: table;
+	margin-bottom: calc(-0.3h + 0.39em);
+}
+
+
+
+/* FONTS*/
+.hero-heading {
+  font-size: 40px; /* Mobile base */
+  line-height: 4; /* Adjusted: Experiment with 1.1 to 1.25 for 70px.
+                       A common "safe" starting point for display text is around 1.15. */
+  font-weight: 550;
+  letter-spacing: -1.9px;
+  font-family: "Inter", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0; /* Keep padding at 0 unless you need actual space around the element */
+  /* Optional: Enhance text rendering, though be aware of browser differences */
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 768px) {
+  .hero-heading {
+    font-size: 90PX;
+    line-height: 1.1; /* Adjusted: Experiment with 1.08 to 1.15 for 140px. */
+    letter-spacing: -2.5px;
+    font-weight: 650;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: 120px;
+    line-height: 1.09; /* Adjusted: Experiment with 1.05 to 1.1 for 150px. */
+    letter-spacing: -1.5px;
+    font-weight: 700;
+  }
+}
+
+
+.subtext-title {
+  font-size: 30px; /* Mobile base */
+  line-height: 0.8;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-family: "Inter", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+.subtext-title {
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.1;
+  font-weight: 650;
+}
+
+
+@media (min-width: 1024px) {
+  .subtext-title {
+    font-size: clamp(40px, 4vw, 60px);
+    line-height: 1.05;
+    font-weight: 700;
+  }
+}
+
+
+.subtext {
+  font-size: clamp(17px, 1.7vw, 20px); /* Mobile base */
+  line-height: 1.06;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: "Inter", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .subtext {
+    font-size: clamp(20px, 2.5vw, 25px);
+    line-height: 1.16  ;
+      font-weight: 450;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .subtext {
+    font-size: clamp(30px, 3vw, 10);
+    line-height: 1.1;
+      font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+}
+
+
+.context {
+    font-size: clamp(12px, 2vw, 16px); /* Mobile first */
+  line-height: -100px;
+  font-weight: 300;
+  letter-spacing: -0.011em;
+  font-family: "Inter", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .context {
+    font-size: clamp(13px, 2vw, 17px);
+    line-height: 1.19;
+    font-weight: 350; /* Adjust only if your font supports 350 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .context {
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: 1.2;
+    font-weight: 400;
+  }
+}

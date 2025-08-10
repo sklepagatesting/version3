@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h1 span {
+    display: inline-block;
+}
+
+a, p {
+    font-size: 1.2rem;
+}
+
+.main-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+
+.nav-bar .logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-bar .links a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-bar .cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #fff;
+    color: #111;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.cta-section {
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+}
+
+.cta-container {
+    display: flex;
+    align-items: center;
+}
+
+.cta-container .icon {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 999;
+}
+
+.loader-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+}
+
+.dark-bg-blocks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.dark-bg-blocks .block {
+    width: 50%;
+    height: 100%;
+    background-color: #000;
+}
+
+.intro-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.intro-logo .word {
+    margin: 0 0.5rem;
+}
+
+.divider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 50px;
+    background-color: #fff;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.counter {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+}
+
+.counter .digits {
+    font-size: 1.5rem;
+    margin: 0 0.2rem;
+}
+
+.nav-bar, .header-section h1 span, .header-section p, .cta-section {
+    opacity: 0;
+    transform: translateY(20px);
+}

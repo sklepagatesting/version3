@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hey</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload the font -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/1Pn0EnyXJmdSgbTxHLk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <!-- Load the font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <!-- FontFaceObserver Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.1.0/fontfaceobserver.standalone.js"></script>
+
+  <style>
+body.preload {
+        visibility: hidden;
+        opacity: 0; }
+
+    body { transition: opacity 0.5s ease-in; }
+  </style>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="navbar\navbar.css">
+  <link rel="stylesheet" href="font\font.css">
+  <link rel="stylesheet" href="animations/global.css">
+  <link rel="stylesheet" href="pages\index.css">
+  <link rel="stylesheet" href="controlers\scroll.css">
+  <link rel="stylesheet" href="sections/hero.css">
+  <link rel="stylesheet" href="sections\carousel.css">
+</head>
+
+<body class="preload">
+
+
+  <div class="main-content text-container">
+
+    <!-- 🌐 NAVIGATION BAR (Smaller) -->
+    <nav id="navbar" class="duration-300 fixed inset-x-0 top-0 z-50 h-12">
+      <div class="flex items-center justify-between h-full max-w-screen-xl mx-auto px-3">
+        <a href="#" class="flex items-center space-x-2">
+          <img src="https://scontent.fcgy2-2.fna.fbcdn.net/v/t39.30808-6/447788678_989125819885339_5140898884705194019_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH-qlBuiIyHfPqRIrEVsoNKu8PLjgeG0Ni7w8uOB4bQ2MpzaPZNQSSI-2_i1fa7kAMIBPz56Ol_GE0e6nPKSBqV&_nc_ohc=zx0BAfAF7eEQ7kNvwFHKgHf&_nc_oc=AdkLGvj7C9WQXiqPcMgtlt3h_TkgBGlAowncE8UCMIUdG-MHKmpbUuKFC6hnm9hVZtE&_nc_zt=23&_nc_ht=scontent.fcgy2-2.fna&_nc_gid=WK8qvoxmXx3NeBQy-Gcdrg&oh=00_AfRP42428BJFyAekfiB9QmjfCLd3QM6V22PP4hDaNDLxOg&oe=688BA185" alt="Logo" class="h-5 w-auto" />
+          <span class="font-theme font-medium">SK Lepaga</span>
+        </a>
+        <button id="menu-toggle-btn" type="button" class="font-theme rounded-md hover:bg-[#e8e8e8] dark:hover:bg-[#696969] focus:outline-none" aria-controls="sidebar-multi-level-sidebar" aria-expanded="false">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 🧭 SIDEBAR -->
+    <aside id="sidebar-multi-level-sidebar" class="fixed top-12 left-0 z-30 w-[100vw] hidden transition-[max-height] duration-500 bg-white dark:bg-[#242424]" style="height: calc(100vh - 3rem); overflow-y: auto;" aria-label="Sidebar">
+      <div class="h-full flex items-center justify-center px-4 py-4 max-w-4xl mx-auto">
+        <div id="sidebar-menu" class="font-theme space-y-5 flex flex-col items-center justify-center">
+          <!-- Menu Items -->
+          <div class="sidebar-menu-item flex flex-col items-center m-6">
+            <a href="youtube.com">
+              <button class="sidebar-menu-header flex items-center space-x-2 focus:outline-none">
+                <h2 class="subtext-title">CALENDAR</h2>
+              </button>
+            </a>
+          </div>
+          <!-- Repeat for other menu items... -->
+        </div>
+      </div>
+    </aside>
+
+<section class="h-screen w-full flex flex-col justify-between bg-white overflow-hidden">
+  <div class="w-full pt-24 pb-6 px-0 z-10">
+    <div class="pl-[20px]">
+      <div class="flex space-x-8">
+
+        <a href="index.html" class="group relative flex-shrink-0 w-[300px]" data-transition="">
+          <div class="w-[300px] h-[300px] overflow-hidden rounded-lg relative">
+            <img
+              src="https://htmlburger.com/blog/wp-content/uploads/2021/07/The-Best-50-Website-Preloaders-Around-the-Web-Example-02.gif"
+              alt="Image 1"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="w-full pt-2 overflow-hidden">
+            <p class="context text-black transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+              Creative Campaign
+            </p>
+          </div>
+        </a>
+
+        <a href="#" class="group relative flex-shrink-0 w-[300px]">
+          <div class="w-[300px] h-[300px] overflow-hidden rounded-lg relative">
+            <img
+              src="https://htmlburger.com/blog/wp-content/uploads/2021/07/The-Best-50-Website-Preloaders-Around-the-Web-Example-02.gif"
+              alt="Image 1"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="w-full pt-2 overflow-hidden">
+            <p class="context text-black transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+              Creative Campaign
+            </p>
+          </div>
+        </a>
+
+        <a href="#" class="group relative flex-shrink-0 w-[300px]">
+          <div class="w-[300px] h-[300px] overflow-hidden rounded-lg relative">
+            <img
+              src="https://htmlburger.com/blog/wp-content/uploads/2021/07/The-Best-50-Website-Preloaders-Around-the-Web-Example-02.gif"
+              alt="Image 1"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="w-full pt-2 overflow-hidden">
+            <p class="context text-black transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+              <a href="home.html" data-transition>Go to Next Page</a>
+            </p>
+          </div>
+        </a>
+
+        <a href="#" class="group relative flex-shrink-0 w-[300px]">
+          <div class="w-[300px] h-[300px] overflow-hidden rounded-lg relative">
+            <img
+              src="https://htmlburger.com/blog/wp-content/uploads/2021/07/The-Best-50-Website-Preloaders-Around-the-Web-Example-02.gif"
+              alt="Image 1"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="w-full pt-2 overflow-hidden">
+            <p class="context text-black transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+              Creative Campaign
+            </p>
+          </div>
+        </a>
+
+        <a href="#" class="group relative flex-shrink-0 w-[300px]">
+          <div class="w-[300px] h-[300px] overflow-hidden rounded-lg relative">
+            <img
+              src="https://htmlburger.com/blog/wp-content/uploads/2021/07/The-Best-50-Website-Preloaders-Around-the-Web-Example-02.gif"
+              alt="Image 1"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="w-full pt-2 overflow-hidden">
+            <p class="context text-black transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+              Creative Campaign
+            </p>
+          </div>
+        </a>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="w-full px-8 pb-12 gap-8 flex flex-col-reverse md:flex-row mt-auto items-end">
+    <div class="w-full md:w-3/8 flex flex-col justify-end">
+      <p class="mb-4 text-sm text-gray-700">Play Reel ▶</p>
+      <div class="w-full max-w-sm">
+        <img src="https://placehold.co/400x225/4682B4/FFFFFF?text=Play+Reel" alt="Video Placeholder"
+          class="shadow-lg object-cover w-full h-auto" />
+      </div>
+    </div>
+
+    <div class="w-full md:w-5/8 flex flex-col justify-end text-center md:text-left">
+      <div>
+
+    <div class="text-container">
+        <span class="sliding-up text-black subtext">This is the first line,</span><br>
+        <span class="sliding-up text-black subtext">This is the first line,</span><br>
+        <span class="sliding-up text-black subtext">This is the first line,</span><br>
+        <span class="sliding-up text-black subtext">This is the first line,</span>
+    </div>
+        <div class="text-container">
+        <span class="sliding-up text-black subtext">This is the first line,</span>
+    </div>
+    
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <a href="index copy.html">Hey</a>
+  </div>
+
+  <!-- Script to wait for the font to load before showing the page -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.js"></script>
+  <script src="navbar\navbar.js"></script>
+  <script src="animations\global.js"></script>
+    <script src="font\font.js"></script>
+    <script src="loader\loader.js"></script>
+</body>
+
+</html>
