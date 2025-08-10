@@ -122,3 +122,120 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("playReel");
+  const overlayBg = document.getElementById("videoOverlayBg");
+  let expanded = false;
+  let placeholder = null;
+
+  function toggleVideoOverlay() {
+    if (!expanded) {
+      // Create placeholder to keep layout
+      placeholder = document.createElement("div");
+      placeholder.style.width = `${video.offsetWidth}px`;
+      placeholder.style.height = `${video.offsetHeight}px`;
+      video.parentNode.insertBefore(placeholder, video);
+
+      // Get current video position/size before moving
+      const rect = video.getBoundingClientRect();
+
+      // Freeze position & size immediately to avoid jump
+      gsap.set(video, {
+        position: "fixed",
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+        borderRadius: "0px",
+        zIndex: 9999,
+        margin: 0
+      });
+
+      // Move to body AFTER locking styles
+      document.body.appendChild(video);
+
+      // Show overlay background
+      overlayBg.style.pointerEvents = "auto";
+      gsap.to(overlayBg, {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.inOut"
+      });
+
+      // Expand video
+      const target = window.innerWidth > 768
+        ? { width: window.innerWidth, height: window.innerHeight }
+        : (() => {
+            const w = window.innerWidth * 0.9;
+            return { width: w, height: w * (9 / 16) };
+          })();
+
+      gsap.to(video, {
+        top: "50%",
+        left: "50%",
+        xPercent: -50,
+        yPercent: -50,
+        ...target,
+        borderRadius: "8px",
+        duration: 0.8,
+        ease: "power3.inOut"
+      });
+
+      document.body.classList.add("overlay-active");
+
+    } else {
+      // Animate back to placeholder position/size
+      const rect = placeholder.getBoundingClientRect();
+
+      gsap.to(video, {
+        top: rect.top,
+        left: rect.left,
+        xPercent: 0,
+        yPercent: 0,
+        width: rect.width,
+        height: rect.height,
+        borderRadius: "0px",
+        duration: 0.8,
+        ease: "power3.inOut",
+        onComplete: () => {
+          // Restore original position in DOM
+          video.style = "";
+          placeholder.parentNode.insertBefore(video, placeholder);
+          placeholder.remove();
+          placeholder = null;
+        }
+      });
+
+      // Hide overlay background
+      gsap.to(overlayBg, {
+        opacity: 0,
+        pointerEvents: "none",
+        duration: 0.8,
+        ease: "power3.inOut"
+      });
+
+      document.body.classList.remove("overlay-active");
+    }
+
+    expanded = !expanded;
+  }
+
+  // Event listeners
+  video.addEventListener("click", toggleVideoOverlay);
+  overlayBg.addEventListener("click", toggleVideoOverlay);
+
+  // Handle resize while expanded
+  window.addEventListener("resize", () => {
+    if (expanded) {
+      const target = window.innerWidth > 768
+        ? { width: window.innerWidth, height: window.innerHeight }
+        : (() => {
+            const w = window.innerWidth * 0.9;
+            return { width: w, height: w * (9 / 16) };
+          })();
+      gsap.set(video, target);
+    }
+  });
+});
